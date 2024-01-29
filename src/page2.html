@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>untitled</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+		*{box-sizing: border-box;}
+		
+		body {
+		  margin: 0;
+		  font-family: Arial, Helvetica, sans-serif;
+		}+
+		.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+	a:link{
+		color:#99bbff;
+	}
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+		.topnav {
+		  overflow: hidden;
+		  background-color: #6699ff;
+		}
+		
+		.topnav a {
+		  float: left;
+		  display: block;
+		  color: black;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 17px;
+		}
+		
+		.topnav a:hover {
+		  background-color: #ffffff;
+		  color: black;
+		}
+		
+		.topnav a.active {
+		  background-color: #2196F3;
+		  color: white;
+		}
+		
+		.topnav input[type=text] {
+		  float: right;
+		  padding: 6px;
+		  margin-top: 8px;
+		  margin-right: 16px;
+		  border: none;
+		  font-size: 17px;
+		}
+		.button {
+  
+		border: none;
+		border-radius: 25px;
+		color: black;
+		text-align: center;
+		font-family:'Courier New';
+		font-weight: bold;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 20px;
+		margin: 4px 2px;
+		cursor: pointer;
+		}
+		.button:hover {
+		  background-color: #FFA07A;
+		  color: black;
+		}
+
+		@media screen and (max-width: 600px) {
+		  .topnav a, .topnav input[type=text],.botton {
+			float: none;
+			display: block;
+			text-align: center;
+			width: 100%;
+			margin: 0;
+			padding: 14px;
+		  }
+		  
+		  .topnav input[type=text] {
+			border: 1px solid #ccc;  
+		  }
+		}
+		.container {
+  			display: inline-block;
+  			cursor: pointer;
+		}
+
+		.bar1, .bar2, .bar3 {
+  			width: 35px;
+  			height: 5px;
+  			background-color:#ffffff;
+  			margin: 6px 0;
+  			transition: 0.4s;
+		}
+
+		.change .bar1 {
+			-webkit-transform: rotate(-45deg) translate(-9px, 6px);
+			transform: rotate(-45deg) translate(-9px, 6px);
+		}
+
+		.change .bar2 {opacity: 0;}
+
+		.change .bar3 {
+			-webkit-transform: rotate(45deg) translate(-8px, -8px);
+			transform: rotate(45deg) translate(-8px, -8px);
+		}
+		 input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+  height: 60px;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+textarea
+{
+	margin-left:20px;
+    background-color: #99bbff;
+}
+
+		
+		</style>
+</head>
+<body style="background-color:black;">
+	
+	<h1 style="font-family:'Brush Script MT';color:white;font-size:4em;", cursive>&nbsp La Musique</h1>
+	
+	<div style="float:right">
+	<div class="container" onclick="myFunction(this)">
+		<div class="bar1"></div>
+		<div class="bar2"></div>
+		<div class="bar3"></div>
+	</div>
+	
+	<script>
+	function myFunction(x) {
+		x.classList.toggle("change");
+	}
+	</script>
+	</div>
+
+	<div class="topnav" style="font-family:'Verdana';">
+		<a href="#discover">Discover</a>
+		<a href="#popular">Popular</a>
+		<a href="#contact">Charts</a>
+		<a href="#genres">Genres</a>
+
+		<div class="wrapper">
+			<div class="search_box">
+				<div class="search_btn"><i class="fas fa-search"></i></div>
+				<input type="text" class="input_search" placeholder="Search..">
+			</div>
+		</div>
+	</div>
+	
+	
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+	
+	<br>
+	<br>
+	<h4 style="color:white;font-family:verdana;">&nbsp DISCOVER BY GENRE</h4>
+	<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+	
+	
+	
+	<button style="background-color:#b3ccff ;padding: 20px 203px" class="button" type="button" onclick="alert('Coming Soon')">CLASSIC</button>
+	<button style="background-color:#99bbff ;padding: 20px 221px" class="button" type="button" onclick="alert('Coming Soon')">ROCK</button>
+	<button style="background-color:#80aaff ;padding: 20px 191px" class="button" type="button" onclick="alert('Coming Soon')">BOLLYWOOD</button>
+	<button style="background-color:#80aaff ;padding: 20px 203px" class="button" type="button" onclick="alert('Coming Soon')">HIP-POP</button>
+	<button style="background-color:#99bbff ;padding: 20px 215px" class="button" type="button" onclick="alert('Coming Soon')">K-POP</button>
+	<button style="background-color:#b3ccff ;padding: 20px 204px" class="button" type="button" onclick="alert('Coming Soon')">ROMANCE</button>
+	<br>
+	<br>
+	<br>
+	<h4 style="color:white;font-family:verdana;">&nbsp NEW RELEASES</h4>
+	<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+	<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card bg-dark text-white" style="font-family:verdana";>
+      <img src="https://i.scdn.co/image/ab67616d00001e0217db30ce3f081d6818a8ad49" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Proof - BTS</h5>
+        <a href="#" class="btn btn-primary">$50 BUY</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+   <div class="card bg-dark text-white" style="font-family:verdana";>
+      <img src="https://media.pitchfork.com/photos/627d300ec2ce40433b34b820/1:1/w_600/Post-Malone-Twelve-Carat-Toothache.jpg" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Twelve Carat Toothache - Post Malone</h5>
+        <a href="#" class="btn btn-primary">$40 BUY</a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card bg-dark text-white" style="font-family:verdana";>
+      <img src="https://www.upressonline.com/wp-content/uploads/2021/03/dontsmileatme.jpg" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Don't Smile At Me - Billie Eilish</h5>
+        <a href="#" class="btn btn-primary">$45 BUY</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card bg-dark text-white" style="font-family:verdana";>
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/76/Adele_-_30.png" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">30 - Adele</h5>
+        <a href="#" class="btn btn-primary">$55 Buy</a>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+	<br>
+	<br>
+	<h4 style="color:white;font-family:verdana;">&nbsp UPCOMING ALBUMS</h4>
+	<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+	<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card bg-dark text-white" style="font-family:verdana";>
+      <img src="https://pbs.twimg.com/media/FQFKmfZXwAIk0YV?format=jpg&name=4096x4096" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Superache - Conan Gray</h5>
+        <h6 class="card-text">Release date: 24 June 2022</h6>
+        <a href="#" class="btn btn-primary">BOOK</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+   <div class="card bg-dark text-white" style="font-family:verdana";>
+      <img src="https://images.genius.com/ecbad58a024ff44b746cf4d8b24a3e7e.1000x1000x1.jpg" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Formentera - Metric</h5>
+        <h6 class="card-text">Release date: 06 July 2022</h6>
+        <a href="#" class="btn btn-primary">BOOK</a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card bg-dark text-white" style="font-family:verdana";>
+      <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Madonna_-_Finally_Enough_Love_-_50_Number_Ones.png" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Finally Enough Love - Madona</h5>
+        <h6 class="card-text">Release date: 24 June 2022</h6>
+        <a href="#" class="btn btn-primary">BOOK</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card bg-dark text-white" style="font-family:verdana";>
+      <img src="https://eversonglyrics.com/wp-content/uploads/2022/05/mr.-percocet.jpg" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">The Harest Part - Noah Cyrus</h5>
+        <h6 class="card-text">Release date: 15 July 2022</h6>
+        <a href="#" class="btn btn-primary">BOOK</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<br>
+<form action="/action_page.php">
+  <p><label for="w3review"><h5 style="color:white;font-family:verdana;">&nbsp Help us improve!</h5></label></p>
+  <textarea id="w3review" name="w3review" rows="4" cols="50">Type Here... </textarea>
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+
+
+
+</body>
+
+</html>
